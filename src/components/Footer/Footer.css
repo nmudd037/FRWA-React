@@ -1,0 +1,22 @@
+.pv4 {
+  padding-top: 60px;
+}
+
+.footer {
+  padding-top: 550px;
+}
+
+/* unvisited link */
+a:link {
+  color: #001b44;
+}
+
+/* visited link */
+a:visited {
+  color: #001b44;
+}
+
+/* selected link */
+a:active {
+  color: #001b44;
+}
