@@ -62,7 +62,7 @@ function App() {
     box: [],
     route: 'signin',
     isSignedIn: false,
-    isToken: false,
+    isLoading: true,
     user: {
       id: '',
       name: '',
@@ -161,11 +161,18 @@ function App() {
     }));
   };
 
-  // const onToken = (token) => {
-  //   if (token) setState((state) => ({ ...state, isToken: true }));
-  // };
+  const loadingRequest = () => {
+    return new Promise((resolve) => setTimeout(() => resolve(), 500));
+  };
 
   useEffect(() => {
+    loadingRequest().then(() => {
+      const el = document.querySelector('.sk-cube-grid');
+      if (el) {
+        el.remove();
+        setState((state) => ({ ...state, isLoading: false }));
+      }
+    });
     const token = localStorage.token;
     if (token) {
       return fetch('https://frwa-server-v2.herokuapp.com/profile', {
@@ -181,15 +188,19 @@ function App() {
             localStorage.removeItem('token');
             return setState(initialState);
           }
-          setState((state) => ({ ...state, route: 'home', isSignedIn: true, isToken: true }));
+          setState((state) => ({ ...state, route: 'home', isSignedIn: true }));
           loadUser(data);
         });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { isSignedIn, box, imageUrl, route, isToken } = state;
+  const { isSignedIn, box, imageUrl, route, isLoading } = state;
   const { name, entries } = state.user;
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <div className="App">
@@ -206,8 +217,6 @@ function App() {
           <ImageLinkForm onInputChange={onInputChange} onPictureSubmit={onPictureSubmit} />
           <FaceRecognition box={box} imageUrl={imageUrl} />
         </>
-      ) : isToken ? (
-        <></>
       ) : route === 'signin' || route === 'signout' ? (
         <SignIn onRouteChange={onRouteChange} loadUser={loadUser} alertGenerator={alertGenerator} />
       ) : route === 'register' ? (
