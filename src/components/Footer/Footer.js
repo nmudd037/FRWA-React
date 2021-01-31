@@ -11,7 +11,12 @@ const Footer = ({ isSignedIn, imageUrl }) => {
     >
       <small className="f4 db tc">
         © {new Date().getFullYear()}
-        <a href="https://github.com/nmudd037" className="ttu link dim pointer">
+        <a
+          href="https://github.com/nmudd037"
+          className="ttu link dim pointer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {' '}
           MNR
         </a>
