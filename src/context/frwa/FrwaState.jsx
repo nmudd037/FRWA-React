@@ -32,7 +32,7 @@ export const sendImage = async (dispatch, url) => {
     const { imageUrl } = url;
     dispatch({ type: SET_IMAGE_URL, payload: imageUrl });
 
-    const res = await axios.post('http://localhost:5001/api/images', url, config);
+    const res = await axios.post('https://frwa-server-v2.herokuapp.com/api/images', url, config);
     console.log(res);
     dispatch({
       type: POST_IMAGE_TO_API_SUCCESS,
@@ -49,7 +49,11 @@ export const sendImage = async (dispatch, url) => {
 // Update Image Entries of User
 export const updateEntries = async (dispatch, id, imageUrl) => {
   try {
-    const res = await axios.patch(`http://localhost:5001/api/images/${id}`, imageUrl, config);
+    const res = await axios.patch(
+      `https://frwa-server-v2.herokuapp.com/api/images/${id}`,
+      imageUrl,
+      config
+    );
     dispatch({
       type: ENTRIES_UPDATE,
       payload: res.data.entries,
@@ -81,7 +85,6 @@ export const clearFrwa = (dispatch) => {
 const FrwaState = (props) => {
   const initialState = {
     imageUrl: null,
-    //input: null,
     box: null,
     boundingBox: null,
     updatedEntries: null,

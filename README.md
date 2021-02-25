@@ -1,7 +1,8 @@
 # Face Recognition Web App
 
-A full-stack web application using the PERN stack that lets user to submit an image through url to detect the human faces in the image using the Clarifai API.
-Developed a simple API and server to handle the routes using the Node.js and Express using PostgreSQL(Knex query builder) as the database.
+A full-stack web application using the PERN stack that lets user to submit an image through url to detect the human faces in the image using the Clarifai API. Implemented Context API and useReducer hook to create action creators and reducers and routing with React-Router.
+
+Developed a simple RESTful API and server to handle the routes using the Node.js and Express with PostgreSQL(Knex query builder) as the database.
 
 Backend Code, **[click here](https://github.com/nmudd037/FRWA-server)**
 

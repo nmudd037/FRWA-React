@@ -33,7 +33,7 @@ const config = {
 // Load User
 export const loadUser = async (dispatch) => {
   try {
-    const res = await axios.get('http://localhost:5001/api/auth');
+    const res = await axios.get('https://frwa-server-v2.herokuapp.com/api/auth');
     dispatch({ type: USER_LOADED, payload: res.data.user });
   } catch (err) {
     dispatch({
@@ -46,7 +46,11 @@ export const loadUser = async (dispatch) => {
 // Register User
 export const register = async (dispatch, formData) => {
   try {
-    const res = await axios.post('http://localhost:5001/api/users', formData, config);
+    const res = await axios.post(
+      'https://frwa-server-v2.herokuapp.com/api/users',
+      formData,
+      config
+    );
     dispatch({
       type: REGISTER_SUCCESS,
       payload: res.data,
@@ -64,7 +68,7 @@ export const register = async (dispatch, formData) => {
 // Login User
 export const login = async (dispatch, formData) => {
   try {
-    const res = await axios.post('http://localhost:5001/api/auth', formData, config);
+    const res = await axios.post('https://frwa-server-v2.herokuapp.com/api/auth', formData, config);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
