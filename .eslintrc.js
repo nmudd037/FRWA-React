@@ -33,6 +33,7 @@ module.exports = {
     'prettier/prettier': ['error', { endOfLine: 'auto' }, { usePrettierrc: true }], // Use our .prettierrc file as source
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-console': 'off',
     'simple-import-sort/imports': 'error',

@@ -1,5 +1,4 @@
 import './index.css';
-import 'tachyons';
 
 import React from 'react';
 import { positions, Provider, transitions } from 'react-alert';

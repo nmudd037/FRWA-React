@@ -1,6 +1,5 @@
 import './Logo.css';
 
-import React from 'react';
 import Tilty from 'react-tilty';
 
 import icon from './Logo.png';
